@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
 :root {
     --primary-color: #0065FC;
@@ -144,6 +143,10 @@ aside {
     margin-bottom: 1rem;
 }
 
+.search-button {
+    padding: 0.875rem 1rem;
+}
+
 
 .form-search input {
     width: auto;
@@ -227,6 +230,11 @@ aside {
     color: var(--primary-color);
 }
 
+.infobar {
+    display: flex;
+    align-items: baseline;
+}
+
 .infobar i{
     margin-right: 1rem;
     border: 1px solid var(--secondary-color);
@@ -259,15 +267,20 @@ aside {
 
 .card-content h3 {
     margin-top: 0;
+    margin-bottom: 0;
+}
+
+.card-content p {
+    margin: 0.5rem 0 1.5rem;
+    font-size: 0.875rem;
 }
 
 .rates {
     display: flex;
     align-items: center;
-    /* position: absolute;
-    bottom: 12px; */
+    position: absolute;
+    bottom: 16px;
 }
-
 .rates i {
     margin-right: 0.5rem;
     color: var(--primary-color);
@@ -355,6 +368,8 @@ aside {
 
 .listing-content .title-icon i {
     color: var(--primary-color);
+    width: 18px;
+    height: 18px;
 }
 
 #listing-popular ul {
@@ -372,13 +387,12 @@ aside {
 
 .listing-content ul.popular-locations li.card img {
     border-radius: 1rem 0 0 1rem;
-    width: 33%;
+    width: 40%;
     height: 144px;
 }
 
 .listing-content ul.popular-locations li.card .card-content {
-    width: 66%;
-    padding: 1rem 0.5rem 0.5rem 1rem;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
 }
 
 .listing-content ul.popular-locations li.card .card-content .rates {
@@ -487,10 +501,105 @@ footer {
 /** MEDIA QUERRIES **/
 /*******************/
 
+/** MEDIA QUERRIES TABLETTE**/
+
+@media screen  and (max-width: 992px) {
+
+    h3 {
+        font-size: 0.875rem;
+    }
+    
+    main {
+        width: 90%;
+        grid-template-areas: 
+        "intro intro intro intro intro intro"
+        "article article article article article article"
+        "aside aside aside aside aside aside"
+        "activities activities activities activities activities activities";
+    }
+
+    .city-locations {
+        grid-template-columns: repeat(3, 1fr);;
+    }
+    
+    #intro{
+        padding: 0;
+    }
+
+    #activities {
+        padding: 0;
+    }
+    
+    .listing-content {
+        padding: 25px;
+        border-radius: 1.250rem;
+    }
+
+    .listing-content ul.city-locations li.card .card-content p {
+        font-size: 14px;
+    }
+    
+    .listing-content:before {
+        display: none;
+    }
+    
+    .listing-content:after {
+        display: none;
+    }
+
+    #listing-popular{
+        grid-row: 3;
+    }
+    
+    #listing-popular ul {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 23px;
+    }
+
+    .listing-content ul.popular-locations li.card .card-content p {
+        font-size: 13px;
+    }
+
+    .listing-content ul.popular-locations li.card .card-content {
+        padding: 1rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .listing-activities {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 1.5rem;
+    }
+
+    .listing-activities .card {
+        max-width: 300px;
+    }
+
+    .listing-activities .card img {
+        width: 100%;
+        height: 211px;
+    }
+
+}
+
 
 /** MEDIA QUERRIES MOBILE**/
 
 @media screen and (max-width: 768px) {
+
+    .no-mobile {
+        display: block;
+    }
+
+    .no-desktop {
+        display: none;
+    }
+
+    .title-filtres {
+        font-size: 1.125rem;
+    }
+
+    h2 {
+        font-size: 1.375em;
+    }
 
     h3{
         font-size:16px;
@@ -541,6 +650,10 @@ footer {
         padding: 1rem; */
     }
 
+    .search-button {
+        padding: 0;
+    }
+
     .filtres a {
         width: 130px;
         font-size: 0.750rem;
@@ -554,6 +667,10 @@ footer {
 
     #activities {
         padding: 25px;
+    }
+
+    article {
+        background-color: transparent;
     }
 
     .listing-activities .card img {
@@ -577,6 +694,10 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .listing-content ul.popular-locations li.card .card-content {
+        padding: 1rem 0.5rem 0.5rem 1rem;
+    }
+
     #activities{
         grid-row: 4;
         padding: 25px;
@@ -591,6 +712,10 @@ footer {
         grid-template-columns: repeat(1, 1fr);
     }
 
+    .listing-activities .card {
+        max-width: inherit;
+    }
+
 
     footer {
         width: 100%;
@@ -603,91 +728,7 @@ footer {
 
 }
 
-/** MEDIA QUERRIES TABLETTE**/
 
-@media screen and (min-width: 768px) and (max-width: 992px) {
-
-    h3 {
-        font-size: 0.875rem;
-    }
-    
-    main {
-        width: 90%;
-        grid-template-areas: 
-        "intro intro intro intro intro intro"
-        "article article article article article article"
-        "aside aside aside aside aside aside"
-        "activities activities activities activities activities activities";
-    }
-
-    .search-button {
-        padding: 0.875rem 1rem;
-    }
-
-    .no-mobile {
-        display: block;
-    }
-
-    .no-desktop {
-        display: none;
-    }
-    .city-locations {
-        grid-template-columns: repeat(3, 1fr);;
-    }
-    
-    #intro{
-        padding: 0;
-    }
-
-    #activities {
-        padding: 0;
-    }
-    
-    .listing-content {
-        padding: 25px;
-        border-radius: 1.250rem;
-    }
-
-    .listing-content ul.city-locations li.card .card-content p {
-        font-size: 14px;
-    }
-    
-    .listing-content:before {
-        display: none;
-    }
-    
-    .listing-content:after {
-        display: none;
-    }
-
-    #listing-popular{
-        grid-row: 3;
-    }
-    
-    #listing-popular ul {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 23px;
-    }
-
-    .listing-content ul.popular-locations li.card .card-content p {
-        font-size: 13px;
-    }
-
-    .listing-activities {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        column-gap: 1.5rem;
-    }
-
-    .listing-activities .card {
-        max-width: 300px;
-    }
-
-    .listing-activities .card img {
-        width: 100%;
-        height: 211px;
-    }
-
-}
 
 
 
